@@ -8,6 +8,6 @@ Make sure you execute these commands while in the repository root. It will creat
 
 ```bash
 python -m venv .venv 
-source .venv/bin/activate
+source .venv/bin/activate # Or .\.venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
