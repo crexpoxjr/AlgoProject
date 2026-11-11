@@ -1,5 +1,7 @@
 # AlgoProject
 
+> Person 1 additions are included in this version. See [PERSON1_README.md](PERSON1_README.md) for the hybrid model, training, benchmarks, paper drafts, and remaining TACC/FI-2010 work. The original Person 2 integration notes below contain some historical references to files not yet being present.
+
 **Efficient Stock Price Movement Prediction Using a Hybrid CNN–Linear Attention Network**
 
 A repository for the CSCE 4110 Algorithms class project. We predict the *direction* of the

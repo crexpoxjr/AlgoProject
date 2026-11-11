@@ -1,0 +1,10 @@
+\section{Proposed Approach}
+Given a sequence of $T$ limit-order-book observations with 40 features each, the model predicts one of three price-movement classes. A shared one-dimensional CNN maps the input to a sequence of $d$-dimensional representations. Sinusoidal positional encoding and a pre-normalized attention encoder follow, and a mean-pooling classification head produces three logits. The CNN, encoder wrapper, and head match the standard-attention baseline, isolating the attention mechanism in the comparison.
+
+For each head, let $Q,K,V\in\mathbb{R}^{T\times d_h}$ be learned projections and let $\phi(x)=\operatorname{ELU}(x)+1$ elementwise. The non-causal attention output at position $i$ is
+\begin{equation}
+ y_i=\frac{\phi(q_i)^\top\left(\sum_{j=1}^{T}\phi(k_j)v_j^\top\right)}{\max\left(\phi(q_i)^\top\sum_{j=1}^{T}\phi(k_j),\epsilon\right)}.
+\end{equation}
+The summaries are computed once per head, avoiding a $T\times T$ attention matrix. This positive-feature kernel differs from softmax attention; it is not an algebraically exact softmax implementation. Attention is non-causal within the input history: all observations in the window are available for the prediction, provided the data pipeline ends the window at the prediction time.
+
+For batch size $B$, $H$ heads and head width $d_h$, the attention contractions cost $O(BHTd_h^2)$ time and require $O(BHTd_h + BHd_h^2)$ intermediate storage. Explicit softmax attention adds $O(BHT^2d_h)$ attention work and $O(BHT^2)$ score storage. These statements hold at fixed widths and exclude shared projections, CNN, and feed-forward costs; actual latency and memory depend on hardware and implementation.

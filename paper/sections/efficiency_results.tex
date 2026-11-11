@@ -1,0 +1,7 @@
+% Person 1 contribution to Experimental Analysis. Fill only from actual measurements.
+\subsection{Computational Efficiency}
+We compare whole-model inference on the CNN with standard attention and the CNN with linear attention using synthetic, float32 inputs at sequence lengths 50, 100, 200, 500, 1000, and 2000. These measurements assess computational scaling and do not measure predictive performance. The explicit standard-attention implementation materializes attention scores; optimized fused softmax kernels are not used in this comparison. Both models use the same batch size and shared architecture. Measurements use evaluation mode, warm-up iterations, and synchronization around each timed GPU forward pass. We report median batch latency, peak allocated GPU tensor memory, and parameter count. Peak allocation includes the resident model and input; incremental allocation above that baseline is also retained in the output files.
+
+% TODO: Insert measured table/figure and interpret the actual trade-off.
+% TODO: Record GPU model, system, PyTorch and CUDA versions, batch size,
+% warm-up/repetitions, and any out-of-memory cases. Do not invent results.
