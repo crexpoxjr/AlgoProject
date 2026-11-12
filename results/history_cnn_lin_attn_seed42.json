@@ -1,0 +1,38 @@
+{
+  "model": "cnn_lin_attn",
+  "data": "fi2010",
+  "config": {
+    "in_features": 40,
+    "seq_len": 100,
+    "num_classes": 3,
+    "horizon_k": 10,
+    "d_model": 64,
+    "cnn_kernel_size": 3,
+    "cnn_layers": 2,
+    "n_heads": 4,
+    "n_attn_layers": 1,
+    "ffn_mult": 2,
+    "dropout": 0.1,
+    "use_pos_encoding": true,
+    "seed": 42,
+    "batch_size": 64,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 1,
+    "early_stop_patience": 5,
+    "use_class_weights": true
+  },
+  "best_epoch": 1,
+  "best_val_macro_f1": 0.10542587726078219,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0792264432726395,
+      "seconds": 25.286997079849243,
+      "val_accuracy": 0.18784428938670583,
+      "val_macro_precision": 0.06261476312890195,
+      "val_macro_recall": 0.3333333333333333,
+      "val_macro_f1": 0.10542587726078219
+    }
+  ]
+}
