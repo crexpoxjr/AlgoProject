@@ -8,3 +8,12 @@ __pycache__/
 #ignore model checkpoints (large binaries; share via TACC / Drive instead)
 checkpoints/
 *.pt
+
+# Local datasets and experiment outputs
+/data/fi2010_daily/
+/data/Train_Dst_*.txt
+/data/Test_Dst_*.txt
+/runs/
+/results/
+*.zip
+.DS_Store
